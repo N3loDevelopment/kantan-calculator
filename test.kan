@@ -1,7 +1,0 @@
-extern def printf(fmt: string, ...): i32;
-extern def free(x: *void);
-
-def test() {
-	printf("Test funktioniert \n");
-}
-

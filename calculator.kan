@@ -1,0 +1,27 @@
+extern def printf(fmt: string, ...): i32;
+
+type Input struct {
+        left: i32,
+        right: i32,
+        op: u8
+}
+
+def calculate(input: *Input): i32 {
+        if input.op == '+' as u8 {
+        return input.left + input.right;
+    } else if input.op == '-' as u8 {
+        return input.left - input.right;
+    } else if input.op == '*' as u8 {
+        return input.left * input.right;
+    } else if input.op == '/' as u8 {
+        if input.right == 0 {
+            printf("Fehler: Division durch 0!\n");
+            return 0;
+        }
+        return input.left / input.right;
+    } else {
+        printf("Unbekannter Operator: %c\n", input.op);
+        return 0;
+    }
+}
+
