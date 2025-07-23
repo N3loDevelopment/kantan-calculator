@@ -1,0 +1,32 @@
+import "calculator" as calc;
+
+extern def scanf(fmt: *u8, ...): i32;
+extern def printf(fmt: string, ...): i32;
+
+
+def main() {
+    let left: i32 = 0;
+    let right: i32 = 0;
+    let op: u8 = 0;
+
+    printf("Erste Zahl: ");
+    scanf("%d" as *u8, &left);
+
+    printf("Zweite Zahl: ");
+    scanf("%d" as *u8, &right);
+
+    printf("Operator (+, -, *, /): ");
+    scanf(" %c" as *u8, &op); 
+
+    let input = new calc.Input {
+        left: left,
+        right: right,
+        op: op
+    };
+
+    let result = calc.calculate(input);
+
+
+    printf("Ergebnis: %d %c %d = %d\n", input.left, input.op, input.right, result);
+}
+
